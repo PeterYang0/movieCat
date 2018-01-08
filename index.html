@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>movieCat</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="app.css">
+
+
+</head>
+<body ng-app="movieCat">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Movie Cat</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar" ng-controller="NavController">
+          <li ng-class="{active:id==1}">
+            <a  href="#/in_theaters/1">正在热映</a>
+          </li>
+          <li ng-class="{active:id==2}">
+            <a  href="#/coming_soon/1">即将上映</a>
+          </li>
+          <li ng-class="{active:id==3}">
+            <a  href="#/top250/1">TOP250</a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view></div>
+    </div>
+  </div>
+
+    <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="http.js"></script>
+    <script src="movielist/controller.js"></script>
+<!--     <script src="in_theaters/controller.js"></script>
+    <script src="coming_soon/controller.js"></script>
+    <script src="top250/controller.js"></script> -->
+
+</body>
+</html>
