@@ -22,7 +22,8 @@ list.controller('listCtrl', ['$scope','$route','$routeParams','HttpServices',fun
 	HttpServices.jsonp('http://api.douban.com/v2/movie/'+$routeParams.type,
 		{
 			start:start,
-			count:count
+			count:count,
+			q:$routeParams.q
 		},
 		function(data){
 			$scope.subjects=data.subjects;

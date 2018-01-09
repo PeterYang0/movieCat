@@ -6,12 +6,13 @@ var app=angular.module('movieCat', [
   // 'movieCat.in_theaters',
   // 'movieCat.coming_soon',
   // 'movieCat.top250'
+  'movieCat.del',
   'movieCat.list'
 ]);
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/in_theaters/1'});
 }]);
-app.controller('NavController',['$scope','$location',function($scope,$location){
+app.controller('NavController',['$scope','$location','$route',function($scope,$location,$route){
 	//先转换为自己的
 	$scope.$location=$location;
 
@@ -24,5 +25,11 @@ app.controller('NavController',['$scope','$location',function($scope,$location){
 			$scope.id=3;
 		};
 	});
+
+	$scope.input="";
+	$scope.search=function(){
+		$route.updateParams({type:'search',q:$scope.input});
+		$scope.id=0;
+	}
 
 }])

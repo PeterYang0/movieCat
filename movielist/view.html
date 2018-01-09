@@ -1,6 +1,6 @@
 <h1 class="page-header">{{title}}</h1>
 <div class="list-group">
-	<a href="#" ng-repeat="item in subjects" class="list-group-item">
+	<a ng-repeat="item in subjects" href="#/subject/{{item.id}}" class="list-group-item">
   	<span class="badge">{{item.rating.average}}</span>
     <div class="media">
 		<div class="media-left">
