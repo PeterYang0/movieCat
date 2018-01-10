@@ -6,8 +6,11 @@ var app=angular.module('movieCat', [
   // 'movieCat.in_theaters',
   // 'movieCat.coming_soon',
   // 'movieCat.top250'
+
   'movieCat.del',
-  'movieCat.list'
+  'movieCat.list',
+
+
 ]);
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/in_theaters/1'});
@@ -28,7 +31,7 @@ app.controller('NavController',['$scope','$location','$route',function($scope,$l
 
 	$scope.input="";
 	$scope.search=function(){
-		$route.updateParams({type:'search',q:$scope.input});
+		$route.updateParams({type:'search',q:$scope.input,id:''});
 		$scope.id=0;
 	}
 

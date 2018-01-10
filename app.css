@@ -117,6 +117,23 @@ body {
 .media{
   margin-top: 0;
 }
+.pager a,
+#navbar a{
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* 加载动画css */
 .loader {

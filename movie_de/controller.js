@@ -3,7 +3,7 @@
 var del =angular.module('movieCat.del', ['ngRoute','movieCat.services.http']);
 
 del.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/subject/:id', {
+  $routeProvider.when('/:type/1/:id', {
     templateUrl: 'movie_de/view.html',
     controller: 'delCtrl'
   });
@@ -11,9 +11,7 @@ del.config(['$routeProvider', function($routeProvider) {
 
 del.controller('delCtrl', ['$scope','$route','$routeParams','HttpServices',function($scope,$route,$routeParams,HttpServices) {
 
-
-
-	HttpServices.jsonp('http://api.douban.com/v2/movie/subject/'+$routeParams.id,
+	HttpServices.jsonp('http://api.douban.com/v2/movie/'+$routeParams.type+'/'+$routeParams.id,
 		// +'/'+$routeParams.id,
 		{},
 		function(data){
@@ -24,10 +22,6 @@ del.controller('delCtrl', ['$scope','$route','$routeParams','HttpServices',funct
 
 		});
 
-	// $scope.del=function(id){
-	// 	$route.updateParams({type:subject,id:$scope.id});
-	// };
-
 
 }]);
 
@@ -36,9 +30,10 @@ del.controller('delCtrl', ['$scope','$route','$routeParams','HttpServices',funct
 
 
 	// var doubanAPI='http://api.douban.com/v2/movie/del';
-	// $http.jsonp(doubanAPI+'?callback=JSON_CALLBACK').then(function(data){
-	// 	if (data.status==200) {
-	// 		$scope.subjects=data.data.subjects;
+	// $http.jsonp(doubanAPI+'?callback=JSON_CALLBACK').then(function(res){
+	// 	if (res.status==200) {
+		           //里面还有一个data
+	// 		$scope.subjects=res.data.subjects;
 	// 	}else {
 	// 		$scope.message='信息加载出错，错误信息：'+data.statusText;
 	// 	}

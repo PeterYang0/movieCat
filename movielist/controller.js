@@ -15,6 +15,8 @@ list.controller('listCtrl', ['$scope','$route','$routeParams','HttpServices',fun
 	var page=parseInt($routeParams.page);
 	var start=(page-1)*count;
 
+	
+
 	$scope.title='';
 	$scope.page=page;
 	$scope.tiao=0;
@@ -37,6 +39,8 @@ list.controller('listCtrl', ['$scope','$route','$routeParams','HttpServices',fun
 		});
 
 	$scope.go=function(page){
+		page<=1?page=1:page=page;
+		page>=$scope.pageCount?page=$scope.pageCount:page=page;
 		$route.updateParams({page:page});
 	};
 
